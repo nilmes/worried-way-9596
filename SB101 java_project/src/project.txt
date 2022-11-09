@@ -1,0 +1,187 @@
+Step 1: Creating a required Database.
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| basicsql_2         |
+| deposit            |
+| evalution          |
+| information_schema |
+| mysql              |
+| org                |
+| performance_schema |
+| practice           |
+| sb101_project      |   <---------Created database
+| sqlday2assignment  |
+| student            |
+| sys                |
+| web20sb101db       |
++--------------------+
+
+Step2: Create a All required tables:
+
+ 1.create table HOD(
+ username varchar(20) unique ,
+ password varchar(12)
+ );
+ 
+ mysql> desc HOD;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | YES  | UNI | NULL    |       |
+| password | varchar(12) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+ 2.create table engineers(
+   EnggId int primary  key auto_increment,
+   EnggName varchar(12),
+   EnggUserName varchar(12) unique,
+   EnggPassword varchar(12),
+   EnggCategory varchar(15)
+   );
+
+mysql> desc engineers;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| EnggId       | int         | NO   | PRI | NULL    | auto_increment |
+| EnggName     | varchar(12) | YES  |     | NULL    |                |
+| EnggUserName | varchar(12) | YES  | UNI | NULL    |                |
+| EnggPassword | varchar(12) | YES  |     | NULL    |                |
+| EnggCategory | varchar(15) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    3.create table problems(
+    pid int primary key auto_increment,
+    pname varchar(12),
+    pcategory varchar(15),
+    status varchar(12)
+    );
+    
+    mysql> desc problems;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| pid       | int         | NO   | PRI | NULL    | auto_increment |
+| pname     | varchar(12) | YES  |     | NULL    |                |
+| pcategory | varchar(15) | YES  |     | NULL    |                |
+| status    | varchar(12) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+  --->Establishing  relationship between employee,engineer and problems tables.
+  
+
+
+    4.create table employee_engineer(
+    rpid int,
+    reid int,
+    foreign key (rpid) references problems(pid),
+    foreign key (reid) references engineers (EnggId)
+    );
+     
+     
+     
+     mysql> desc employee_engineer;
+     +-------+------+------+-----+---------+-------+
+     | Field | Type | Null | Key | Default | Extra |
+     +-------+------+------+-----+---------+-------+
+     | rpid  | int  | YES  | MUL | NULL    |       |
+     | reid  | int  | YES  | MUL | NULL    |       |
+     +-------+------+------+-----+---------+-------+
+     2 rows in set (0.00 sec)
+     
+================================================================================================================================================
+
+
+ Step 3: Create a Separate Utility package for making a database connection...
+
+	1.class--> DButil
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+		
+    String url="jdbc:mysql://localhost:3306/sb101_project";
+    
+============================================================================================================================================
+
+  step 4:create bean/models classes
+  
+      1.HOD.
+      2.Employee.
+      3.Engineer.		
+      6.EngineerDto.
+      4.Problem.
+      5.ProblemAssignTo.  
+      
+      
+      
+=====================================================================================================================================================
+
+   Step 4: Create a Separated Exception classes.
+
+	1. HODException .
+	
+	2. EngineerException .
+	
+	3. EmployeeException .
+	 
+    4. ProblemException .
+    
+====================================================================================================================================================
+
+  step 5:Create a DAO Interfaces and its Implementation class in Dao folder .
+  
+    1. HODDao (I).
+	   HODDaoImpl (C).
+
+	2. EngineerDao (I).
+	   EngineerDaoImpl (C).
+
+	3. EmployeeDao (I).
+	   EmployeeDaoImpl (C).
+
+    4. ProblemsDao (I).
+	   ProblemsDaoImpl (C).
+	   
+	   
+	   
+==================================================================================================================================================
+
+   step 6: add one HOD data into hod table in mysql.
+   
+   mysql> select * from hod;
+   +----------+----------+
+   | username | password |
+   + ----------+----------+
+   | nitu     | nitu123  |
+   +----------+----------+
+    1 row in set (0.00 sec)
+
+==========================================================================================================
+
+  step 7 create separate use cases classes;
+  
+  
+  
+
+   
+   	   
+
+
+ 
+ 
