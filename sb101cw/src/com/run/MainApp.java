@@ -53,6 +53,8 @@ public class MainApp {
 			{
 				
 			}
+		default:
+				System.out.println("Invalid input");
 		}
 		
 
