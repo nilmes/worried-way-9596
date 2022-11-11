@@ -2,6 +2,8 @@ package com.HODusecases;
 
 import java.util.Scanner;
 
+import com.run.MainApp;
+
 
 
 public class HOD_Options {
@@ -40,6 +42,15 @@ public class HOD_Options {
 		case 5 :
 			AssignProblemUseCase.main(null);
 			HOD_Options.HOD_Section();
+			 break;
+		case 6:
+			System.out.println("Thankyou for using Our HOD services..");
+			MainApp.main(null);
+			return;
+			 
+		 default:
+			 System.out.println("Invalid Input try again..");
+			 HOD_Options.HOD_Section();
 			 break;
 		}
 
