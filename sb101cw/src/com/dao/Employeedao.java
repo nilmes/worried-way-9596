@@ -11,11 +11,11 @@ public interface Employeedao {
 	
 	public Employee EmployeeLogin(String username, String password) throws EmployeeException;
 	
-	public String RegisterProblem(Problem problem) throws EmployeeException;
+	public String RegisterProblem(Problem problem,int id) throws EmployeeException;
 	
-	public String ViewStatus(int id)throws EmployeeException;
+	public String CheckEnggAsignToProb(int id)throws EmployeeException;
 	
-	public List<Problem> CheckHistory(int id) throws EmployeeException;
+	public List<Problem> CheckProbHistory(int id) throws EmployeeException;
 	
-	public String UpdatePassword(String Username ,String password) throws EmployeeException;
+	public String UpdatePassword(int empid,String password) throws EmployeeException;
 }

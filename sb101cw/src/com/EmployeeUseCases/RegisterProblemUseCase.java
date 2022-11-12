@@ -9,7 +9,7 @@ import com.model.Problem;
 
 public class RegisterProblemUseCase {
 
-	public static void main(String[] args) {
+	public static void main(int id) {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -32,7 +32,7 @@ public class RegisterProblemUseCase {
 		Employeedao dao =new EmployeedaoImpl();
 		
 		try {
-			String msg=dao.RegisterProblem(prob);
+			String msg=dao.RegisterProblem(prob,id);
 			System.out.println(msg);
 		} catch (EmployeeException e) {
 			System.out.println(e.getMessage());

@@ -16,13 +16,14 @@ public class RegisterEnggUseCase {
 		System.out.println("Enter Engineer Name:");
 		String EnggName= sc.next();
 		
-		System.out.println("Enter Engineer UserName (should be unique):");
-		String EnggUserName = sc.next();
+		sc.nextLine();
+		System.out.println("Enter Engineer UserName (email):");
+		String EnggUserName = sc.nextLine();
 		
 		System.out.println("Enter Engineer password:");
 		String EnggPassword= sc.next();
 		
-		System.out.println("Enter Engineer Category :");
+		System.out.println("Enter Engineer Category (Hardware/software):");
 		String EnggCategory= sc.next();
 		
 		HODdao dao = new HODdaoImpl();

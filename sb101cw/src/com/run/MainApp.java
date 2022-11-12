@@ -20,7 +20,7 @@ public class MainApp {
 		
 		System.out.println("Choose Your Option");
 		
-		System.out.println("\n1: HOD Login \n2: Engineer Login \n3: Employee Login \n");
+		System.out.println("\n1: HOD Login.. \n2: Engineer Login.. \n3: Employee section.. \n");
 		
 		int choice=sc.nextInt();
 		
@@ -65,7 +65,8 @@ public class MainApp {
 			}
 			break;
 		default:
-				System.out.println("Invalid input");
+				System.out.println("Invalid input try again..");
+				MainApp.main(null);
 		}
 		
 

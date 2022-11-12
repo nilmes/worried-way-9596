@@ -24,7 +24,7 @@ public class LoginEmployeeUseCase {
 		
 		try {
 			Employee emp =dao.EmployeeLogin(username, pass);
-			System.out.println(emp.getEmpName()+"Your Login is Successfull......");
+			System.out.println(emp.getEmpName()+".. Your Login is Successfull......");
 			System.out.println("welcome.. "+emp.getEmpName());
 			Employee_Options.Select(emp.getEmpID());
 		} catch (EmployeeException e) {

@@ -45,7 +45,16 @@ public class RegisterEmployeeUseCase {
         }
         else
         {
-        	MainApp.main(null);
+        	System.out.println("If you want to exit Employee regitration process enter yes or no ");
+        	String str = sc.next();
+        	if(str.equalsIgnoreCase("yes"))
+        	{
+        		MainApp.main(null);
+        	}
+        	else
+        	{
+        		RegisterEmployeeUseCase.main(null);
+        	}
         }
 	}
 
